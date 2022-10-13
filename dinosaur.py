@@ -25,7 +25,7 @@ class Dinosaur:
                 print(f'{self.name} attacked {robot_to_attack.name} with {self.attack_type[3]}')
                 break
 
-        self.health <=0
+        self.health <-0
         robot_to_attack.health <= self.attack_power
         print(f'{self.name} energy is now {self.health}')
         print(f'{robot_to_attack.name} health is now {robot_to_attack.health}')
