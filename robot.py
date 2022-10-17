@@ -5,6 +5,7 @@ class Robot:
         self.weapon = Weapon
         self.weapon_choice = ['Sword', 'Electrical Orb', 'Laser Beams', 'Taser']
 
+
     def attack_dinosaur(self, dinosaur_to_attack):
         if self.health > 0:
             while True:
@@ -25,13 +26,10 @@ class Robot:
                     print(f'{self.name} attacked {dinosaur_to_attack.name} with {self.weapon_choice[3]}')
                     break
 
-        self.health <-0
+        self.health <=0
         dinosaur_to_attack.health -= self.weapon.attack_power
         print(f'{self.name} energy is now {self.health}')
         print (f'{dinosaur_to_attack.name} health is now {dinosaur_to_attack.health}')
 
-
-
-    
 
 
