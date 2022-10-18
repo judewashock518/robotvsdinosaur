@@ -4,22 +4,5 @@ from weapon import Weapon
 
 class Fleet:
     def __init__(self):
-        self.robots = []
-        self.create_fleet()
+        self.robots = [Robot("Robo", Weapon("Sword", 8)), Robot("Gizmo", Weapon("Electrical Orb", 20)), Robot("Rusty", Weapon("Laser Beams", 30)), Robot("Tin", Weapon ("Taser", 50))]
     
-
-    def create_fleet(self):
-        weapon1 = Weapon("Sword", 8)
-        weapon2 = Weapon("Electrical Orb", 20)
-        weapon3 = Weapon("Laser Beams", 30)
-        weapon4 = Weapon ("Taser", 50)
-        
-        robot1= Robot("Robo", weapon1)
-        robot2 = Robot("Gizmo", weapon2)
-        robot3 = Robot("Rusty", weapon3)
-        robot4 = Robot("Tin", weapon4)
-
-        self.robots.append(robot1)
-        self.robots.append(robot2)
-        self.robots.append(robot3)
-        self.robots.append(robot4)
