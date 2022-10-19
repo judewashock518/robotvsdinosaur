@@ -18,25 +18,25 @@ class Robot:
                     dinosaur_to_attack.health -= self.weapon.attack_power
                     print(f'{self.name} energy is now {self.health}')
                     print (f'{dinosaur_to_attack.name} health is now {dinosaur_to_attack.health}')
+                    break
                 if weapon_choice == 2:
                     print(f'{self.name} attacked {dinosaur_to_attack.name} with {self.weapon_choice[1]}')
                     dinosaur_to_attack.health -= self.weapon.attack_power
                     print(f'{self.name} energy is now {self.health}')                    
-                    print (f'{dinosaur_to_attack.name} health is now {dinosaur_to_attack.health}') 
+                    print (f'{dinosaur_to_attack.name} health is now {dinosaur_to_attack.health}')
+                    break 
                 if weapon_choice == 3:
                     print(f'{self.name} attacked {dinosaur_to_attack.name} with {self.weapon_choice[2]}')
                     dinosaur_to_attack.health -= self.weapon.attack_power
                     print(f'{self.name} energy is now {self.health}')
                     print (f'{dinosaur_to_attack.name} health is now {dinosaur_to_attack.health}')
+                    break
                 if weapon_choice == 4:
                     print(f'{self.name} attacked {dinosaur_to_attack.name} with {self.weapon_choice[3]}')
                     dinosaur_to_attack.health -= self.weapon.attack_power
                     print(f'{self.name} energy is now {self.health}')
                     print (f'{dinosaur_to_attack.name} health is now {dinosaur_to_attack.health}')
-        if self.health <=0:
-            print ('Your Robot has been defeated.')
-        if dinosaur_to_attack.health <=0:
-            print ('You defeated the dinosaur!')
+                    break
 
 
     

@@ -9,6 +9,7 @@ class Battlefield():
     def __init__(self):
         self.fleet = Fleet()
         self.herd = Herd()
+        self.goes_first = ''
 
 
     def run_game(self):
@@ -81,19 +82,24 @@ class Battlefield():
         first_turn = random.randint(1, 2)
         if first_turn == 1:
             print('Robots go first!')
-            first_turn = 1
+            self.goes_first = "Robot"
         if first_turn == 2:
             print('Dinosaurs go first!')
-            first_turn = 2
+            self.goes_first = "Dinosaur"
 
     def current_turn(self):
-        self.robot.attack_dinosaur(self.dinosaur)
-        self.dinosaur.attack_robot(self.robot)
-        self.current_turn()
+        while self.dinosaur.health >0 and self.robot.health >0:
+
+            if self.goes_first == "Robot":
+                self.robot.attack_dinosaur(self.dinosaur)
+                self.dinosaur.attack_robot(self.robot)
+            elif self.goes_first == "Dinosaur":
+                self.dinosaur.attack_robot(self.robot)
+                self.robot.attack_dinosaur(self.dinosaur)
 
     def display_winner(self):
-        if self.robot >0:
-            print(f'{self.robot} has defeated {self.dinosaur}!')
-        elif self.dinosaur >0:
-            print(f'{self.dinosaur} has defeated {self.robot}!')
+        if self.robot.health <=0:
+            print(f'{self.robot.name} has defeated {self.dinosaur.name}! {self.robot.name} is the winner!')
+        elif self.dinosaur.health <=0:
+            print(f'{self.dinosaur.name} has defeated {self.robot.name}! {self.dinosaur.name} is the winner!')
 
