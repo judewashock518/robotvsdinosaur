@@ -2,7 +2,8 @@ import dinosaur
 import robot
 from fleet import Fleet
 from herd import Herd
-import random
+import random 
+
 
 class Battlefield():
     def __init__(self):
@@ -15,7 +16,8 @@ class Battlefield():
         self.robot = self.choose_robot()
         self.dinosaur = self.choose_dinosaur()
         self.battle()
-        self.current_turn(self.choose_robot, self.choose_dinosaur)
+        self.current_turn()
+        self.display_winner()
 
 
     def display_welcome(self):
@@ -40,37 +42,37 @@ class Battlefield():
     #         self.choose_team()
 
     def choose_robot(self):
-        choose_robot = int(input(f"'Choose your robot: (0){self.fleet.robots[0].name}, (1){self.fleet.robots[1].name}, (2){self.fleet.robots[2].name}, (3){self.fleet.robots[3].name}'"))
+        choose_robot = int(input(f"Choose your robot: (0){self.fleet.robots[0].name}, (1){self.fleet.robots[1].name}, (2){self.fleet.robots[2].name}, (3){self.fleet.robots[3].name}"))
         if choose_robot == 0:
             print('You chose Robo!')
-            return choose_robot
+            return self.fleet.robots[0]
         elif choose_robot == 1:
             print('You chose Gizmo!')
-            return choose_robot
+            return self.fleet.robots[1]
         elif choose_robot == 2:
             print('You chose Rusty!')
-            return choose_robot
+            return self.fleet.robots[2]
         elif choose_robot == 3:
             print('You chose Tin!')
-            return choose_robot
+            return self.fleet.robots[3]
         else:
             print('Oops! Try again.')
             self.choose_robot()
 
     def choose_dinosaur(self):
-        choose_dinosaur = int(input(f"'Choose your dinosaur: (0){self.herd.dinosaurs[0].name}, (1){self.herd.dinosaurs[1].name}, (2){self.herd.dinosaurs[2].name}, (3){self.herd.dinosaurs[3].name}'"))
+        choose_dinosaur = int(input(f"Choose your dinosaur: (0){self.herd.dinosaurs[0].name}, (1){self.herd.dinosaurs[1].name}, (2){self.herd.dinosaurs[2].name}, (3){self.herd.dinosaurs[3].name}"))
         if choose_dinosaur == 0:
             print('You chose Rex!')
-            return choose_dinosaur
+            return self.herd.dinosaurs[0]
         if choose_dinosaur == 1:
             print('You chose Tito!')
-            return choose_dinosaur
+            return self.herd.dinosaurs[1]
         if choose_dinosaur == 2:
             print('You chose Toad!')
-            return choose_dinosaur
+            return self.herd.dinosaurs[2]
         if choose_dinosaur == 3:
             print('You chose Fossil!')
-            return choose_dinosaur
+            return self.herd.dinosaurs[3]
         else:
             print('Oops! Try again.')
             self.choose_dinosaur()
@@ -85,4 +87,13 @@ class Battlefield():
             first_turn = 2
 
     def current_turn(self):
+        self.robot.attack_dinosaur(self.dinosaur)
+        self.dinosaur.attack_robot(self.robot)
+        self.current_turn()
+
+    def display_winner(self):
+        if self.robot >0:
+            print(f'{self.robot} has defeated {self.dinosaur}!')
+        elif self.dinosaur >0:
+            print(f'{self.dinosaur} has defeated {self.robot}!')
 
